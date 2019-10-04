@@ -1,11 +1,15 @@
 class Admin::TeachersController < Admin::BaseController
+  add_breadcrumb "Викладач", :admin_teachers_path
+
   before_action :set_teacher, only: [:edit, :update, :destroy]
 
   def index
-    @teachers = Teacher.order(id: :desc)
+    @teachers = Teacher.order(id: :desc).page(params[:page])
   end
-
+ 
   def new
+    add_breadcrumb "Новий Викладач", new_admin_teacher_path
+
     @teacher = Teacher.new
   end
 
@@ -15,19 +19,24 @@ class Admin::TeachersController < Admin::BaseController
     if @teacher.save
       redirect_to admin_teachers_path, notice: 'Викладач успішно доданий'
     else 
+      add_breadcrumb "Новий Викладач", new_admin_teacher_path
+
       flash.now[:alert] = 'Не вдалося створити Викладача'
       render :new
     end
   end
 
-  def edit   
+  def edit
+    add_breadcrumb "Редагувати #{@teacher.first_name} #{@teacher.last_name}", [:edit, :admin, @teacher]
   end
  
   def update 
     if @teacher.update(teacher_params)
       redirect_to admin_teachers_path, notice: 'Викладач успішно змінений'
     else 
-      flash.now[:alert] = 'Не вдалося змінити Викладача'
+      add_breadcrumb "Редагувати #{@teacher.first_name} #{@teacher.last_name}", [:edit, :admin, @teacher]
+
+      flash.now[:alert] = 'Не вдалося змінити Викладача', [:admin, @teacher]
       render :edit
     end
   end
