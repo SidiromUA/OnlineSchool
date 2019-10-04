@@ -19,6 +19,10 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 
+gem 'turbolinks'
+
+gem 'simple_form'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
@@ -32,6 +36,7 @@ gem 'simple_form'
 gem 'cocoon'
 
 gem 'tinymce-rails'
+gem 'rubocop'
 
 gem 'breadcrumbs_on_rails'
 gem 'kaminari'

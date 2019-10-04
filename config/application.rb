@@ -15,8 +15,8 @@ module OnlineSchool
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-    config.i18n.default_locale = :uk
-    config.time_zone = 'Kyiv'
+    config.i18n.default_locale = :en
+    config.time_zone = 'London'
     config.exceptions_app = self.routes
     config.active_record.belongs_to_required_by_default = true
 
