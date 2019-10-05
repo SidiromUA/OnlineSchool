@@ -1,5 +1,5 @@
 class Admin::TeachersController < Admin::BaseController
-  add_breadcrumb "Викладач", :admin_teachers_path
+  add_breadcrumb "Викладачі", :admin_teachers_path
 
   before_action :set_teacher, only: [:edit, :update, :destroy]
 
@@ -36,7 +36,7 @@ class Admin::TeachersController < Admin::BaseController
     else 
       add_breadcrumb "Редагувати #{@teacher.first_name} #{@teacher.last_name}", [:edit, :admin, @teacher]
 
-      flash.now[:alert] = 'Не вдалося змінити Викладача', [:admin, @teacher]
+      flash.now[:alert] = 'Не вдалося змінити Викладача'
       render :edit
     end
   end
