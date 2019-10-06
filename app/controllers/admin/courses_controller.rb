@@ -49,10 +49,6 @@ class Admin::CoursesController < Admin::BaseController
     end
   end
 
-  def order
-    @course = Course.new
-  end
-
   private
 
   def set_course
@@ -64,6 +60,7 @@ class Admin::CoursesController < Admin::BaseController
   end
 
   def course_params
-    params.require(:course).permit(:name, :description)
+    params.require(:course).permit(:name, :description, :teacher_id, discipline_ids: [],
+                                   sections_attributes: [:_destroy, :id, :name, :description, :position])
   end
 end

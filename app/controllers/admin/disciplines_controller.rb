@@ -49,10 +49,6 @@ class Admin::DisciplinesController < Admin::BaseController
     end
   end
 
-  def order
-    @discipline = Discipline.new
-  end
-
   private
 
   def set_discipline

@@ -45,7 +45,7 @@ gem 'bootstrap-kaminari-views'
 gem 'draper'
 # gem 'ransack'
 
-gem 'devise'
+gem 'devise' 
 gem 'authority'
 
 gem 'state_machines-activerecord'

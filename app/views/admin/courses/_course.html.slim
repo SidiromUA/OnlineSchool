@@ -6,4 +6,5 @@ tr
       = link_to [:admin, course], class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Ви дійсно хочете видалити?' } do
         span.glyphicon.glyphicon-trash aria-hidden="true"
   td= course.name
-  td= course.description
+  td= course.teacher.decorate.full_name
+  td= course.disciplines_names

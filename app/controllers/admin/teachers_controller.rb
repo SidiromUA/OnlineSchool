@@ -27,14 +27,14 @@ class Admin::TeachersController < Admin::BaseController
   end
 
   def edit
-    add_breadcrumb "Редагувати #{@teacher.first_name} #{@teacher.last_name}", [:edit, :admin, @teacher]
+    add_breadcrumb "Редагувати #{@teacher.decorate.full_name}", [:edit, :admin, @teacher]
   end
  
   def update 
     if @teacher.update(teacher_params)
       redirect_to admin_teachers_path, notice: 'Викладач успішно змінений'
     else 
-      add_breadcrumb "Редагувати #{@teacher.first_name} #{@teacher.last_name}", [:edit, :admin, @teacher]
+      add_breadcrumb "Редагувати #{@teacher.decorate.full_name}", [:edit, :admin, @teacher]
 
       flash.now[:alert] = 'Не вдалося змінити Викладача'
       render :edit
@@ -47,10 +47,6 @@ class Admin::TeachersController < Admin::BaseController
     else
       redirect_to admin_teachers_path, alert: 'Не вдалось видалити Викладача'
     end
-  end
-
-  def order
-    @teacher = Teacher.new
   end
 
   private
