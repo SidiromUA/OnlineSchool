@@ -1,0 +1,10 @@
+= simple_form_for [:admin, @course, @lesson], wrapper: :horizontal_form, html: { class: 'form-horizontal' } do |f|
+    = f.input :name
+    = f.input :description
+    
+    .row
+        .col-md-11.col-md-offset-3.button_box
+        = f.button :submit, 'Зберегти', class: 'btn btn-primary'
+        = link_to 'Відмінити', [:admin, @course, :lessons], class: 'btn btn-default'
+        = link_to 'Видалити', [:admin, @course, @lesson], class: 'btn btn-danger', method: :delete,
+                data: { confirm: 'Бажаєте видалити?' } if @lesson.persisted? 

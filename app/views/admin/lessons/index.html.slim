@@ -1,0 +1,13 @@
+h3 Заняття
+= link_to 'Додати заняття', [:new, :admin, @course, :lesson], class: 'btn btn-success pull-right'
+
+table.table.table-striped
+  thead
+    tr
+      th
+      th Назва
+      th Опис
+  tbody
+    = render @lessons
+
+= paginate @lessons, theme: 'twitter-bootstrap-3'
